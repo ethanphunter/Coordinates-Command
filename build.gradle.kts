@@ -6,6 +6,8 @@
  * User Manual available at https://docs.gradle.org/8.0.2/userguide/building_java_projects.html
  */
 
+ version = "1.0.0"
+
 plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
     `java-library`
