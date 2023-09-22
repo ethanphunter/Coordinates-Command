@@ -3,13 +3,17 @@ package com.ethanphunter.coordinatescommand.command;
 import java.util.Collections;
 import java.util.List;
 
+import net.kyori.adventure.text.Component;
+
+import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabExecutor;
+import org.bukkit.entity.Player;
+
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import org.bukkit.entity.Player;
-import org.bukkit.Location;
 
 public class CoordinatesCommand implements TabExecutor {
 
@@ -27,7 +31,7 @@ public class CoordinatesCommand implements TabExecutor {
 
             description = descBuilder.toString();
         }
-        player.sendMessage(
+        Component message = Component.text(
             player.getName()
             + " ["
             + Math.round(location.getX()) + ", "
@@ -35,6 +39,7 @@ public class CoordinatesCommand implements TabExecutor {
             + Math.round(location.getZ()) + "]"
             + description
             );
+        Bukkit.broadcast(message);
         return true;
     }
 
